@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image';
 
 function about() {
   return (
@@ -36,6 +37,13 @@ function about() {
 
 </Head>
     <div>about</div>
+    <Image
+        src="https://secretseventeen.com/Media/icon.png"
+        alt="My image"
+        width={500}
+        height={500}
+      />
+
     </>
   )
 }

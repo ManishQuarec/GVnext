@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, Children } from "react";
 import styles from "../../styles/App.module.css"
 import Nav from "../Nav/Nav";
 // import BreakingNews from "./Component/BreakingNews/BreakingNews";
@@ -7,7 +7,7 @@ import LeftMenuBar from "../LeftMenuBar/LeftMenuBar";
 // import AppStore from "./Component/AppStore/AppStore";
 // import VideoSlider from "./Component/VideoSlider/VideoSlider";
 // import ImageData from "./Component/ImageData/ImageData";
-// import NewsBlock from "../NewsBlock/NewsBlock";
+import NewsBlock from "../NewsBlock/NewsBlock";
 // import SearchNews from "./Component/SearchNews/SearchNews";
 // import SocialMediaLeft from "./Component/SocialMediaLeft/SocialMediaLeft";
 import RightPhotoImage from "../RightPhotoImage/Comimg";
@@ -24,9 +24,9 @@ import Coming from "../ComingSoon/Coming";
 
 // import { Route, Routes, BrowserRouter, useParams } from "react-router-dom";
 
-function App() {
+function App({children}) {
   // let { userId, cat } = useParams();
-  console.log(process.env.REACT_APP_API_BASE_URL);
+  // console.log(process.env.REACT_APP_API_BASE_URL);
   // const Layout = ({ children }) => {
   //   return (
   //     <>
@@ -89,7 +89,9 @@ function App() {
             <div className={styles.LeftSection}>
               <LeftMenuBar />
             </div>
-            <div className={styles.MiddleSection}>{"data"}</div>
+            <div className={styles.MiddleSection}>
+           {children}
+            </div>
             <div className={styles.RightSection}>
               <RightPhotoImage />
               {/* <Coming /> */}

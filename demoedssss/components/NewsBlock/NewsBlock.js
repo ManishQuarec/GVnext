@@ -3,6 +3,7 @@ import styles from  "../../styles/NewsBlock.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useRouter } from 'next/navigation';
 import axios from "axios";
 // import { Helmet } from "react-helmet";
 // import img from "../../Image/HomePageIMage/raspred1.png";
@@ -13,7 +14,9 @@ import axios from "axios";
 // import MetaDecorator from "../MetaTag/Metatag";
 
 function NewsBlock(props) {
-  console.log(process.env.REACT_APP_FRONT_FILES);
+  const router = useRouter();
+  console.log("props",props.value.data);
+  // console.log(process.env.REACT_APP_FRONT_FILES);
   // const [url, setUrl] = useState(window.location.href);
   function handleCopyUrl(url) {
     console.log(url);
@@ -32,7 +35,8 @@ function NewsBlock(props) {
     // const url  = process.env.REACT_APP_FRONT_FILES+ "/filessss" + `${e._id}`
 
     // window.location.href = url
-    navigate("/fullnews/" + `${e._id}`);
+    router.push(`${e._id}`)
+    // navigate("/fullnews/" + `${e._id}`);
     window.location.reload();
 
     // return (
@@ -66,14 +70,14 @@ function NewsBlock(props) {
 
   useEffect(() => {
 
-  const cat = "Top news"
+  // const cat = "Top news"
     // await setNewsDatas([])
     // console.warn(cat);
     setNewsDatas([]);
     {
       props.value.unique == true
         ? axios
-          .post(process.env.REACT_APP_API_BASE_URL + "/allNews")
+          .post(process.env.NEXT_PUBLIC_API_BASE_URL+ "/allNews")
           .then(async (response) => {
             // console.log(response.data.response);
             await setNewsDatas(response.data.response);
@@ -81,8 +85,8 @@ function NewsBlock(props) {
             console.log("res1");
           })
         : axios
-          .post("http://localhost:5000/call" + "/allNewsData", {
-            data: cat,
+          .post(process.env.NEXT_PUBLIC_API_BASE_URL + "/allNewsData", {
+            data: `${props.value.data}`,
           })
           .then(async (response) => {
             // console.log(response.data.response);
@@ -118,7 +122,7 @@ function NewsBlock(props) {
               <div className={styles.headlinesright}>
                 <img
                   // src={img}
-                  src={"http://localhost:5000/" + `${news.Path}`}
+                  src={process.env.NEXT_PUBLIC_API_URL + `${news.Path}`}
                   alt={"data"}
                 />
               </div>
@@ -147,7 +151,7 @@ function NewsBlock(props) {
               <div className="cated">{news.GujCategory}</div>
 
               <div className={styles.SocialIcon2}>
-                <div onClick={(e) => { handleCopyUrl(process.env.REACT_APP_FRONT_FILES + "fullnews/" + news._id) }}>
+                <div onClick={(e) => { handleCopyUrl(process.env.NEXT_PUBLIC_FRONT_FILES + "fullnews/" + news._id) }}>
                   <FontAwesomeIcon
                     className={styles.SocialIconed1}
                     href="#"
@@ -179,3 +183,6 @@ function NewsBlock(props) {
 
 // export default NewsBlock;
 export default React.memo(NewsBlock);
+
+
+

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./IMG-CSS/FullNews.css";
+// import "./IMG-CSS/FullNews.css";
+import styles from "../../styles/Fullnews.module.css"
 import BenIMG from "./IMG-CSS/BenImg.png";
-import { Route, Routes, BrowserRouter, useParams } from "react-router-dom";
+// import { Route, Routes, BrowserRouter, useParams } from "react-router-dom";
 import axios from "axios";
 import NewsBlock from "../NewsBlock/NewsBlock";
-import MetaDecorator from "../MetaTag/Metatag";
-import { Helmet } from "react-helmet";
+// import MetaDecorator from "../MetaTag/Metatag";
+// import { Helmet } from "react-helmet";
 function MyComponent({ htmlContent }) {
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
-function FullNews() {
-  let { userId } = useParams();
-  console.log("userid", userId);
+function FullNews(props) {
+  console.log("para", props.value.data);
+  // let { userId } = useParams();
+  // console.log("userid", userId);
   const [newsData, setNewsData] = useState({});
   const [image, setImage] = useState("");
   const [tittle, setTittle] = useState("");
@@ -46,8 +48,8 @@ function FullNews() {
     //   // String(response.data);;
     // })
     axios
-      .post(process.env.REACT_APP_API_BASE_URL + "/allNewsDataId", {
-        data: userId,
+      .post(process.env.NEXT_PUBLIC_API_BASE_URL + "/allNewsDataId", {
+        data: "userId",
       })
       .then(async (response) => {
         console.log("new", response.data.response[0]);
@@ -65,7 +67,7 @@ function FullNews() {
 
   return (
     <>
-      <MetaDecorator
+      {/* <MetaDecorator
         description={"fullnews"}
         title={"fullnews"}
         imageUrl={"fullnews"}
@@ -73,10 +75,10 @@ function FullNews() {
         link={"lifullnewsnk"}
         
 
-      />
-      <div className="datt">
-        <div className="FullNews">
-          <div className="NewsContent">
+      /> */}
+      <div className={styles.datt}>
+        <div className={styles.FullNews}>
+          <div className={styles.NewsContent}>
             <h1>
               <font style={{ color: colored ? colored : "#000000" }}>
                 {" "}
@@ -88,12 +90,12 @@ function FullNews() {
           </div>
         </div>
 
-        <div className="ImgSection">
-          <img src={process.env.REACT_APP_API_URL + `${image}`} alt="" />
+        <div className={styles.ImgSection}>
+          <img src={process.env.NEXT_PUBLIC_API_URL + `${image}`} alt="" />
         </div>
-        <div className="NewsContent">
+        <div className={styles.NewsContent}>
           <MyComponent htmlContent={news} />
-          <h1 className="gu78">અન્ય સમાચારો પણ છે...</h1>
+          <h1 className={styles.gu78}>અન્ય સમાચારો પણ છે...</h1>
         </div>
       </div>
       <NewsBlock value={{ unique: true }} />

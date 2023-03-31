@@ -7,6 +7,8 @@ import LeftMenuBar from '@/components/LeftMenuBar/LeftMenuBar'
 import TrendingNews from '@/components/TrendingNews/TrendingNews'
 import NewsBlock from '@/components/NewsBlock/NewsBlock'
 import Bottom from '@/components/BottomNAV/Bottom'
+// import TrendingNews from '@/components/TrendingNews/TrendingNews'
+
 
 // import styles from '@/styles/Home.module.css'
 
@@ -21,7 +23,7 @@ export default function Home() {
         <meta name="title" content="Home title" />
         <meta name="description"
           content="Homen description"
-           />
+        />
         <meta property="og:type" content="Home" />
         <meta property="og:url" content="https://www.gujaratvandan.com/" />
         <meta property="og:title" content="Home title"
@@ -47,8 +49,12 @@ export default function Home() {
 
       </Head>
 
-      <Bottom/>
-      <App/>
+      <Bottom />
+      <App >
+        <TrendingNews />
+        <NewsBlock value={{ unique: true }} />
+
+      </App>
 
       {/* <Nav/> */}
       {/* <LeftMenuBar/> */}
