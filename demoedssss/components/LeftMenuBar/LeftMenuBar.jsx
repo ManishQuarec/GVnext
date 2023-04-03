@@ -19,10 +19,13 @@ import Utilities from "./ICO/Utilities.png";
 import Sports from "./ICO/Sports.png";
 import Business from "./ICO/Business.png";
 import Magazine from "./ICO/Magazine.png";
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 // import { Link } from "react-router-dom";
 
 function LeftMenuBar() {
+  const router = useRouter();
   const [resData, setResData] = useState([]);
   // const [cookies, setCookies] = useCookies("GujCategory");
 
@@ -40,8 +43,6 @@ function LeftMenuBar() {
   //   return () => {};
   // }, []);
 
-  
-
   // useEffect(() => {
   //   if (!cookies.GujCategory) {
   //     axios
@@ -54,57 +55,80 @@ function LeftMenuBar() {
   //   }
   // }, []);
 
+  const dataSend = async (e) => {
+    console.log("e", e);
+
+    window.location.href = e;
+    // await router.replace(e);
+
+    // window.location.reload();
+  };
+
   console.log(resData);
 
   return (
     <div className={styles.categorysection}>
-
       {/* {(!cookies.GujCategory ? resData : cookiesdata).map((news, index) => {
         return ( */}
       <>
-        <a
-          style={{ textDecoration: "none", color: "#000" }}
-
-          // href={`/category/${news.Category.EngCategory}`}
-          href={"/category/Top news"}
+        <div
+          className={styles.category}
+          onClick={(e) => {
+            dataSend("/category/Top news");
+          }}
         >
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Trending}  width={20} height={100}alt="" />
-              &nbsp;
-              <p className={styles.ntres}>ટૉપ ન્યૂઝ</p>
-            </div>
+          <div className={styles.DATA}>
+            <Image
+              className={styles.IOCINC}
+              src={Trending}
+              width={20}
+              height={100}
+              alt=""
+            />
+            &nbsp;
+            <p className={styles.ntres}>ટૉપ ન્યૂઝ</p>
           </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/my city"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={City} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>મારું શહેર</p>
-            </div>
+        </div>
+
+        <div
+          className={styles.category}
+          onClick={(e) => {
+            dataSend("/category/my city");
+          }}
+        >
+          <div className={styles.DATA}>
+            <Image className={styles.IOCINC} src={City} alt="" />
+            &nbsp;
+            <p className={styles.ntres}>મારું શહેર</p>
           </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href="/category/My Gujarat">
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Gujarat} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>મારું ગુજરાત</p>
-            </div>
+        </div>
+
+        <div
+          className={styles.category}
+          onClick={(e) => {
+            dataSend("/category/My Gujarat");
+          }}
+        >
+          <div className={styles.DATA}>
+            <Image className={styles.IOCINC} src={Gujarat} alt="" />
+            &nbsp;
+            <p className={styles.ntres}>મારું ગુજરાત</p>
           </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href="/category/Original">
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Original}   
-              
-              alt="" />
-              &nbsp;
-              <p className={styles.ntres}>ઓરિજિનલ</p>
-            </div>
+        </div>
+
+        <div
+          className={styles.category}
+          onClick={(e) => {
+            dataSend("/category/Original");
+          }}
+        >
+          <div className={styles.DATA}>
+            <Image className={styles.IOCINC} src={Original} alt="" />
+            &nbsp;
+            <p className={styles.ntres}>ઓરિજિનલ</p>
           </div>
-        </a>
+        </div>
+
         {/* <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Cricket"}>
           <div className="category">
             <div className="DATA">
@@ -114,24 +138,31 @@ function LeftMenuBar() {
             </div>
           </div>
         </a> */}
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Entertainment"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Entertaiment} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>એન્ટરટેઇનમેન્ટ</p>
+      
+            <div
+              className={styles.category}
+              onClick={(e) => {
+                dataSend("/category/Original");
+              }}
+            >
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={Entertaiment} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>એન્ટરટેઇનમેન્ટ</p>
+              </div>
             </div>
-          </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/India"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={India} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>ઈન્ડિયા</p>
+         
+        
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/India");
+            }}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={India} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>ઈન્ડિયા</p>
+              </div>
             </div>
-          </div>
-        </a>
+         
         {/* <a style={{ textDecoration: "none", color: "#000" }} href="category/">
 
           <div className="category">
@@ -142,25 +173,27 @@ function LeftMenuBar() {
             </div>
           </div>
         </a> */}
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Dharma-Darshan"}>
+    
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/Dharma-Darshan")}}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={Book} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>ધર્મ-રાશિ</p>
+              </div>
+            </div>
+          
+        
 
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Book} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>ધર્મ-રાશિ</p>
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/World")}}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={World} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>વર્લ્ડ</p>
+              </div>
             </div>
-          </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href="/category/World">
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={World} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>વર્લ્ડ</p>
-            </div>
-          </div>
-        </a>
+         
         {/* <a style={{ textDecoration: "none", color: "#000" }} href={"/category/utility"}>
           <div className="category">
             <div className="DATA">
@@ -170,24 +203,26 @@ function LeftMenuBar() {
             </div>
           </div>
         </a> */}
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Sports"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Sports} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>સ્પોર્ટ્સ</p>
+       
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/Sports")}}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={Sports} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>સ્પોર્ટ્સ</p>
+              </div>
             </div>
-          </div>
-        </a>
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Business"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Business} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>બિઝનેસ</p>
+         
+        
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/Business")}}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={Business} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>બિઝનેસ</p>
+              </div>
             </div>
-          </div>
-        </a>
+          
         {/* <a style={{ textDecoration: "none", color: "#000" }} href={"/category/Horoscope"}>
           <div className="category">
             <div className="DATA">
@@ -197,19 +232,19 @@ function LeftMenuBar() {
             </div>
           </div>
         </a> */}
-        <a style={{ textDecoration: "none", color: "#000" }} href={"/category/magazine"}>
-          <div className={styles.category}>
-            <div className={styles.DATA}>
-              <Image className={styles.IOCINC} src={Magazine} alt="" />
-              &nbsp;
-              <p className={styles.ntres}>મેગેઝિન</p>
+        
+            <div className={styles.category} onClick={(e) => {
+              dataSend("/category/magazine")}}>
+              <div className={styles.DATA}>
+                <Image className={styles.IOCINC} src={Magazine} alt="" />
+                &nbsp;
+                <p className={styles.ntres}>મેગેઝિન</p>
+              </div>
             </div>
-          </div>
-        </a>
+          
       </>
       {/* );
       })} */}
-
     </div>
   );
 }

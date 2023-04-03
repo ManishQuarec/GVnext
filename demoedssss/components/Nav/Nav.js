@@ -12,7 +12,8 @@ import {
   faBars,
   faEllipsisV,
 } from "@fortawesome/free-solid-svg-icons";
-import img from "../../public/Logo.png"
+import img from "../../public/Logo.png";
+import Link from "next/link";
 function Nav() {
   // var [date, setDate] = useState(new Date());
 
@@ -29,14 +30,15 @@ function Nav() {
         <input type="checkbox" id={styles.check} />
 
         <div className={styles.logo}>
-          <a href="/">
+          <Link href="/">
             <Image
+            className={styles.imgs}
               src="/Logo.png"
               width={200}
-              height={100}
+              height={50}
               alt="Logo"
             />
-          </a>
+          </Link>
           {/* <div className="date">
             {date.toLocaleDateString()} {date.toLocaleTimeString()}
           </div> */}
@@ -57,28 +59,28 @@ function Nav() {
 
         <div className={styles.navmenu}>
           <ul>
-            <a style={{ textDecoration: "none", color: "#000" }} href="/">
+            <Link style={{ textDecoration: "none", color: "#000" }} href="/">
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>હોમ
               </li>
-            </a>
-            <a
+            </Link>
+            <Link
               style={{ textDecoration: "none", color: "#000" }}
               href="/Coming"
             >
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faPlayCircle}></FontAwesomeIcon>વીડિઓ
               </li>
-            </a>
-            <a
+            </Link>
+            <Link
               style={{ textDecoration: "none", color: "#000" }}
               href="/Coming"
             >
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>સર્ચ કરો
               </li>
-            </a>
-            <a
+            </Link>
+            <Link
               style={{ textDecoration: "none", color: "#000" }}
               href="/EPapers"
             >
@@ -88,7 +90,7 @@ function Nav() {
               <li className={styles.MediaIco}>
                 <FontAwesomeIcon icon={faNewspaper}></FontAwesomeIcon>
               </li>
-            </a>
+            </Link>
             {/* <a style={{ textDecoration: "none", color: "#000" }} href="/">
                 <li className="MediaIcoDOT">
                   <FontAwesomeIcon icon={faEllipsisV}></FontAwesomeIcon>

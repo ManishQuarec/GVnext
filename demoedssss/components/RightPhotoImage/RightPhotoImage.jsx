@@ -20,7 +20,7 @@ function RightPhotoImage(name) {
         setLength(response.data.response.length);
         // console.log(response.data.response);
       });
-  }, []);
+  }, [name.value.EngCategory]);
 
   return (
     <>

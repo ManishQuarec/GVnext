@@ -7,14 +7,15 @@ import {
   faPlayCircle,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 function Bottom() {
   return (
     <>
       <div className={styles.IYMAIN}>
-        <a className={styles.I86iuu}  href="/" ><FontAwesomeIcon icon={faHome}></FontAwesomeIcon><br />વાંચો</a>
-        <a className={styles.I86iuu} href="/Coming"><FontAwesomeIcon icon={faPlayCircle}></FontAwesomeIcon><br />જુઓ</a>
-        <a className={styles.I86iuu} href="/"><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon><br />શોધો</a>
+        <Link className={styles.I86iuu}  href="/" ><FontAwesomeIcon icon={faHome}></FontAwesomeIcon><br />વાંચો</Link>
+        <Link className={styles.I86iuu} href="/Coming"><FontAwesomeIcon icon={faPlayCircle}></FontAwesomeIcon><br />જુઓ</Link>
+        <Link className={styles.I86iuu} href="/"><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon><br />શોધો</Link>
       </div>
     </>
   );

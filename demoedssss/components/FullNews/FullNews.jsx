@@ -5,6 +5,7 @@ import BenIMG from "./IMG-CSS/BenImg.png";
 // import { Route, Routes, BrowserRouter, useParams } from "react-router-dom";
 import axios from "axios";
 import NewsBlock from "../NewsBlock/NewsBlock";
+import Image from 'next/image'
 // import MetaDecorator from "../MetaTag/Metatag";
 // import { Helmet } from "react-helmet";
 function MyComponent({ htmlContent }) {
@@ -49,7 +50,7 @@ function FullNews(props) {
     // })
     axios
       .post(process.env.NEXT_PUBLIC_API_BASE_URL + "/allNewsDataId", {
-        data: "userId",
+        data: props.value.data,
       })
       .then(async (response) => {
         console.log("new", response.data.response[0]);
@@ -63,7 +64,7 @@ function FullNews(props) {
         // console.log(response.data.response);
       });
 
-  },[]);
+  },[props.value.data]);
 
   return (
     <>
@@ -91,7 +92,8 @@ function FullNews(props) {
         </div>
 
         <div className={styles.ImgSection}>
-          <img src={process.env.NEXT_PUBLIC_API_URL + `${image}`} alt="" />
+          <Image src={process.env.NEXT_PUBLIC_API_URL + `${image}`} width={500}
+          height={500}alt="" />
         </div>
         <div className={styles.NewsContent}>
           <MyComponent htmlContent={news} />
