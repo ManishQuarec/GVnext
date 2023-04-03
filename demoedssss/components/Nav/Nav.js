@@ -66,7 +66,7 @@ function Nav() {
             </Link>
             <Link
               style={{ textDecoration: "none", color: "#000" }}
-              href="/Coming"
+              href="/coming"
             >
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faPlayCircle}></FontAwesomeIcon>વીડિઓ
@@ -74,7 +74,7 @@ function Nav() {
             </Link>
             <Link
               style={{ textDecoration: "none", color: "#000" }}
-              href="/Coming"
+              href="/coming"
             >
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>સર્ચ કરો
@@ -82,7 +82,7 @@ function Nav() {
             </Link>
             <Link
               style={{ textDecoration: "none", color: "#000" }}
-              href="/EPapers"
+              href="/coming"
             >
               <li className={styles.link}>
                 <FontAwesomeIcon icon={faNewspaper}></FontAwesomeIcon>ઇ-પેપર્સ

@@ -17,7 +17,7 @@
   z-index: 1000;
   width: 100%;
   top: 0;
-  height: 10%;
+  height: 7%;
   background-color: #fafafa
 }
 
@@ -110,11 +110,11 @@
 }
 
 @media only screen and (max-width: 769px) {
-  .Container {
+  /* .Container {
     position: fixed;
     z-index: 100;
     margin-top: 0px;
-  }
+  } */
 
   .MediaIco {
     display: block;
@@ -167,5 +167,12 @@
     /* width:63%; */
     /* height: 65px; */
     position: relative;
+  }
+}
+
+@media all and (max-width: 644px) {
+
+  .insideContainer {
+    height: 5%;
   }
 }

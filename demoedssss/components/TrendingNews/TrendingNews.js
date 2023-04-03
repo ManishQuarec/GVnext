@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/TrendingNews.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faLink } from "@fortawesome/free-solid-svg-icons";
+import {  faLink } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 // import img from "../../Image/HomePageIMage/raspred1.png";
 // import img from "../../public/Logo.png"
 
@@ -13,15 +16,28 @@ import Image from 'next/image';
 
 function TrendingNews() {
   const [resData, setResData] = useState("");
+  const [image, setImage] = useState("")
+
+
+  const toastOnClick = (url) => {
+    // console.log("clicked");
+    toast("Link Copied", {
+      hideProgressBar: true,
+      autoClose: 2000,
+      type: "success",
+      position:'bottom-right'
+    });
+    navigator.clipboard.writeText(url);
+  };
   // const navigate = useNavigate();
 
 
   // console.log("data",process.env.REACT_APP_API_BASE_URL);
   // const daterss = process.env.API_BASE_URL
 
-  const handleClick = (e) => {
-    navigate("/FullNews/" + `${e}`, { replace: true });
-  };
+  // const handleClick = (e) => {
+  //   navigate("/FullNews/" + `${e}`, { replace: true });
+  // };
 
   // const data = resData.length;
   // console.log("ntt",resData.NewsTittle);
@@ -33,6 +49,8 @@ function TrendingNews() {
       .then(async (response) => {
         await setResData(await response.data.response.pop());
         console.log("ntt", response);
+
+        await setImage(resData.Path);
       });
   }, []);
 
@@ -41,14 +59,14 @@ function TrendingNews() {
 
   return (
     <>
-
+<ToastContainer/>
 
       <div
         className={styles.FullHead}
 
       >
         <div onClick={(e) => {
-          handleClick(resData._id);
+          console.log(e);
         }}>
           <h3 style={{ overflow: "hidden" }}>
             <span
@@ -63,7 +81,10 @@ function TrendingNews() {
           {/* <img className="" src={img} alt="" /> */}
           {/* <img src={process.env.NEXT_PUBLIC_API_URL + `${resData.Path}`} alt="" /> */}
           {/* `${resData.Path}` */}
-          <Image width={700} height={400} src={process.env.NEXT_PUBLIC_API_URL + `${resData.Path}`} alt="data" />
+          <div className={styles.Imges}   > 
+          {/* <Image    fill sizes='100vw' src={process.env.NEXT_PUBLIC_API_URL + `${resData.Path}`} alt="data" /> */}
+          <Image width={700} height={400} src={process.env.NEXT_PUBLIC_API_URL + resData.Path} alt="data" />
+          </div>
         </div>
         <div className={styles.NewFooter}>
           <div className={styles.catted}>{resData.GujCategory}</div>
@@ -74,7 +95,14 @@ function TrendingNews() {
               href="#"
               icon={faLink}
               onClick={() => {
-                navigator.clipboard.writeText(process.env.NEXT_PUBLIC_FRONT_FILES + "fullnews/" + resData._id);
+
+                toastOnClick(
+                  process.env.NEXT_PUBLIC_FRONT_FILES + "category/" +
+                  resData.EngCategory + "/" +
+                  resData._id
+                )
+
+                // navigator.clipboard.writeText(process.env.NEXT_PUBLIC_FRONT_FILES + "fullnews/" + resData._id);
               }}
             ></FontAwesomeIcon>
             <FontAwesomeIcon

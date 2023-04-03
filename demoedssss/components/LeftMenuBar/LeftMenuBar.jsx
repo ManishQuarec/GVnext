@@ -58,7 +58,7 @@ function LeftMenuBar() {
   const dataSend = async (e) => {
     console.log("e", e);
 
-    window.location.href = e;
+    // window.location.href = e;
     // await router.replace(e);
 
     // window.location.reload();

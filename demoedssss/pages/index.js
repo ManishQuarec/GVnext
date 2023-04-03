@@ -46,14 +46,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
-      <Bottom />
-      <App>
-        
-      
-        <NewsBlock value={{ unique: true }} />
-      </App>
+      {/* <Bottom /> */}
+      {/* <App> */}
+        {/* <TrendingNews /> */}
 
-      // <TrendingNews />
+{/*  */}
+        <NewsBlock value={{ unique: true }} />
+      {/* </App> */}
+
+      
       {/* <Nav/> */}
       {/* <LeftMenuBar/> */}
 

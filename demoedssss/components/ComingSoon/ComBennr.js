@@ -6,7 +6,7 @@ import Image from 'next/image';
 function ComBennr() {
   return (
     <>
-      <Image style={{width:"100%",height:"auto"}} src={Ben} alt="" />
+      <Image width={700} height={500} src={Ben} alt="" />
     </>
   )
 }

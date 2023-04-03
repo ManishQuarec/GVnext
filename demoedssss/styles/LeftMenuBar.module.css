@@ -17,7 +17,7 @@
   /* margin-bottom: 10px; */
   font-size: 23px;
   font-weight: bold;
-  padding: 6px 0 6px 15px;
+  padding: 6px 0 6px 6px;
   display: flex;
   align-items: center;
 }
@@ -50,112 +50,36 @@
   width: 30px;
 }
 
-@media all and (max-width: 1050px) {
+/* @media all and (max-width: 1050px) {
   .category {
     width: 160px;
     height: 37px;
     font-size: 20px;
   }
 
-  .category-section {
+  .categorysection {
     width: 180px;
     height: auto;
   }
-}
-
-@media all and (max-width: 800px) {
-  .category {
-    width: 130px;
-    height: 25px;
-    font-size: 15px;
-  }
-
-  .category-section {
-    width: 135px;
-    height: auto;
-  }
-
-  .IOCINC {
-    height: 20px;
-    width: 20px;
-  }
-}
+} */
 
 
-@media all and (max-width: 769px) {
-  .category-section {
-    width: 100%;
-    height: auto;
-    background: #fff;
-    padding-top: 0px;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    position: absolute;
-    position: fixed;
-    /* overflow-x: scroll;
-    overflow-y: hidden; */
-    white-space: nowrap;
-    /* margin-top: 1.3%; */
-    z-index: 99;
-    margin-top: 0;
-    padding-top: 0;
 
-  }
 
-  .category {
-    width: 184px;
-    height: 46px;
-    background-color: #FFF;
-    margin: 0px 10px;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 6px 0 6px 15px;
-    align-items: center;
-    display: inline;
-    /* border: 1px solid red; */
 
-  }
 
-  .Erthicon {
-    display: none;
-  }
-
-  /* **** */
-  .DATA {
-    display: flex;
-    align-items: center;
-    padding-left: 27px;
-  }
-
-  .DATA:hover {
-    background: #d9d9d9;
-  }
-
-  .category:hover {
-    background: none;
-    cursor: pointer;
-  }
-}
-
-@media all and (max-width:667px) {
-  .category-section {
-    height: 40px;
-    /* margin-top: 2.3%; */
-    background: #fff;
-  }
-}
 
 @media all and (max-width: 550px) {
-  .category-section {
+  .categorysection {
     /* margin-top: 3%; */
     height: 33px;
     background: #fff;
+    font-size: 12px;
   }
 }
 
 @media all and (max-width:500px) {
-  .category-section {
+  .categorysection {
     /* margin-top: 8%; */
     height: 41px;
     background: #fff;
@@ -168,7 +92,7 @@
 }
 
 @media all and (max-width: 450px) {
-  .category-section {
+  .categorysection {
     /* margin-top: 11%; */
     height: 44px;
     background: #fff;
@@ -178,7 +102,7 @@
 
 
 @media only screen and (max-width: 1800px) and (min-width: 1500px) {
-  .category-section {
+  .categorysection {
     width: 260px;
     height: auto;
     padding-top: 10px;
@@ -196,14 +120,14 @@
     /* margin-bottom: 10px; */
     font-size: 25px;
     font-weight: bold;
-    padding: 6px 0 6px 15px;
+    padding: 6px 6px 6px 15px;
     display: flex;
     align-items: center;
   }
 }
 
 @media only screen and (max-width: 2000px) and (min-width: 1800px) {
-  .category-section {
+  .categorysection {
     /* width: 350px; */
     height: auto;
     /* padding-top: 10px; */
@@ -226,3 +150,103 @@
     align-items: center;
   }
 }
+
+@media (max-width: 810px)  { 
+  .categorysection {
+    width: 257%;
+    height: auto;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1%;
+    background: #FFF;
+  }
+
+  .category {
+    /* width: 199px; */
+    height: 52px;
+    background-color: white;
+    /* margin-bottom: 10px; */
+    /* font-size: 23px; */
+    font-weight: bold;
+    padding: 6px 6px 6px 6px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+}
+
+
+@media all and (max-width:687px) {
+  .category {
+
+    font-size: 15px;
+
+  }
+  .ntres {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width:564px) {
+  .categorysection {
+    width: 174%;
+  }
+
+  .category {
+
+    font-size: 12px;
+
+  }
+  .ntres {
+    font-size: 15px;
+  }
+  .IOCINC {
+    height: 15px;
+    width: 15px;
+  }
+
+}
+
+@media all and (max-width:544px) {
+  .categorysection {
+    width: 240%;
+  }
+
+}
+
+@media all and (max-width:500px) {
+  .categorysection {
+    width: 240%;
+  }
+  .ntres {
+    font-size: 15px;
+  }
+
+}
+
+@media all and (max-width:500px) {
+  .categorysection {
+    width: 300%;
+  }
+
+}
+
+@media all and (max-width:436px) {
+  .ntres {
+    font-size: 10px;
+  }
+  .categorysection {
+    width: 250%;
+  }
+
+
+}
+
+
+
+
